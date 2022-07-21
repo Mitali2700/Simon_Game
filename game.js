@@ -5,6 +5,20 @@ var buttonColours = ["red", "blue", "green", "yellow"];
 var gamePattern = [];
 
 
+$(".btn").click(function() {
+
+    //2. Inside the handler, create a new variable called userChosenColour to store the id of the button that got clicked.
+    var userChosenColour = $(this).attr("id");
+  
+    //4. Add the contents of the variable userChosenColour created in step 2 to the end of this new userClickedPattern
+    userClickedPattern.push(userChosenColour);
+  
+    //console.log(userClickedPattern);
+  
+  });
+
+  
+
 //1. Inside game.js create a new function called nextSequence()
 function nextSequence() {
 
@@ -18,9 +32,11 @@ function nextSequence() {
   gamePattern.push(randomChosenColour);
   
   
-  $("#randomChosenColour").fadeOut(100).fadeIn(100).fadeOut(100).fadeIn(100);
+  $("#" + randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
 
+
+  var audio = new Audio("sounds/" + randomChosenColour + ".mp3");
+  audio.play();
 
 }
-
 
